@@ -13,7 +13,7 @@ namespace ctr_PatcherConsole
                 PrintReadme();
                 foreach (string path in args)
                 {
-                    PatchNcsd(path);
+                    PatchFile(path);
                 }
             }
             else
@@ -27,12 +27,12 @@ namespace ctr_PatcherConsole
                     PrintReadme();
                     foreach (string path in dialog.FileNames)
                     {
-                        PatchNcsd(path);
+                        PatchFile(path);
                     }
                 }
             }
         }
-        public static void PatchNcsd(string path)
+        public static void PatchFile(string path)
         {
             try
             {

@@ -23,7 +23,7 @@ namespace ctr_PatcherConsole
             {
                 int entity = (int)((float)Percent / 100 * BarLength);
                 int blank = BarLength - entity;
-                return string.Format("[{0}{1}]", GeneralString(entity, "="), GeneralString(blank, " "));
+                return string.Format("[{0}{1}]", GenerateString(entity, "="), GenerateString(blank, " "));
             }
         }
         public new string ToString()
@@ -31,7 +31,7 @@ namespace ctr_PatcherConsole
             return Bar;
         }
 
-        private string GeneralString(int n, string par)
+        private string GenerateString(int n, string par)
         {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < n; i++)
