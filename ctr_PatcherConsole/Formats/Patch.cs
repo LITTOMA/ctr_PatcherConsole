@@ -102,7 +102,7 @@ namespace ctr_PatcherConsole
 
             ConsoleProcessBar processBar = new ConsoleProcessBar();
             processBar.Minimum = Marshal.SizeOf(typeof(PatchHeader));
-            processBar.Maximum = PatchStream.Length - 8;
+            processBar.Maximum = PatchStream.Length - (PatchStream.Length - (long)Header.ExtDataOffset);
             long lastPercent = 0;
 
             Console.WriteLine("Applying patch...");
@@ -227,7 +227,7 @@ namespace ctr_PatcherConsole
 
         const uint patchFileSignature = 0x00535033;
         readonly Version curVersion = new Version { Major = 1, Minor = 0, Level = 0 };
-        public enum PatchCommands
+        public enum PatchCommands : byte
         {
             Over,
             Check,
